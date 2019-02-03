@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "@babel/env", {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie 10",
+            "ie 11",
+            "safari >= 7"
+          ]
+        },
+        "loose": true,
+        "modules": false
+      }
+    ],
+    "@babel/react"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "syntax-dynamic-import",
+    "async-to-promises"
+  ]
+}
