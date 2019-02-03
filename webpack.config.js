@@ -12,6 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, './public'),
     chunkFilename: '[name].[chunkHash].js',
     filename: '[name].[chunkHash].js',
+    publicPath: '/',
   },
 
   devtool: __PROD__ ? false : 'source-map',
