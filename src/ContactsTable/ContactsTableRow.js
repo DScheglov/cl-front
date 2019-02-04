@@ -1,29 +1,32 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, number, func } from 'prop-types';
 
 
-const ContactsTableRow = ({ id, firstName, lastName, phone }) => (
+const ContactsTableRow = ({ id, index, firstName, lastName, phone, edit, remove }) => (
   <tr>
-    <th scope="row">{id}</th>
-    <td>{firstName}</td>
-    <td>{lastName}</td>
+    <th scope="row">{index + 1}</th>
+    <td>
+      <button type="button" className="btn btn-link" onClick={() => edit(id)}>
+        {firstName}{' '}{lastName}
+      </button>
+    </td>
     <td>{phone}</td>
     <td>
-      <div className="btn-toolbar" role="toolbar">
-        <div className="btn-group mr-2" role="group">
-          <button type="button" className="btn btn-info btn-sm">Edit</button>
-          <button type="button" className="btn btn-danger btn-sm">Remove</button>
-        </div>
-      </div>
+      <button className="btn btn-danger btn-sm" onClick={() => remove(id)}>
+        Delete
+      </button>
     </td>
   </tr>
 );
 
 ContactsTableRow.propTypes = {
   id: string,
+  index: number,
   firstName: string,
   lastName: string,
   phone: string,
+  edit: func,
+  remove: func,
 };
 
 export default ContactsTableRow;
